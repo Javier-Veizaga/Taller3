@@ -1,0 +1,3 @@
+Logica para manejar los datos llamadas apis.fetch.
+#Funciones para autenticación
+#Funciones para manejar usuarios
