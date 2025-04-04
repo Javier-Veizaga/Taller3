@@ -1,0 +1,6 @@
+#Paginas  accesibles sin login
+
+ejemplo:
+Home,
+about
+contacto
