@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {
   CButton,
   CCard,
@@ -16,6 +16,16 @@ import CIcon from '@coreui/icons-react';
 import { cilLockLocked, cilUser, cilBriefcase } from '@coreui/icons'; // Importa el icono cilBriefcase
 
 const Register = () => {
+  const [formData, setFormData] = useState({
+    nombre: '',
+    apellido: '',
+    nombreUsuario: '',
+    correo: '',
+    contraseña: '',
+    repetirContraseña: '',
+    rol: '',
+  });
+  
   return (
     <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -30,26 +40,44 @@ const Register = () => {
                     <CInputGroupText>
                       <CIcon icon={cilUser} />
                     </CInputGroupText>
-                    <CFormInput placeholder="Nombre" autoComplete="name" />
+                    <CFormInput placeholder="Nombre" 
+                      autoComplete="name" 
+                      value={formData.nombre}
+                      onChange={(e) => setFormData({...formData, nombre: e.target.value})}
+                    />
                   </CInputGroup>
                   {/* -------------------------------NOMBRE DE APELLIDO------------------------------------------ */}
                   <CInputGroup className="mb-3">
                     <CInputGroupText>
                       <CIcon icon={cilUser} />
                     </CInputGroupText>
-                    <CFormInput placeholder="Apellido" autoComplete="lastname" />
+                    <CFormInput placeholder="Apellido" 
+                      autoComplete="lastname" 
+                      value={formData.apellido}
+                      onChange={(e) => setFormData({...formData, apellido: e.target.value})}
+                    />
                   </CInputGroup>
                   {/* -------------------------------NOMBRE DE USUARIO------------------------------------------ */}
                   <CInputGroup className="mb-3">
                     <CInputGroupText>
                       <CIcon icon={cilUser} />
                     </CInputGroupText>
-                    <CFormInput placeholder="Nombre Usuario" autoComplete="username" />
+                    <CFormInput placeholder="Nombre Usuario" 
+                      autoComplete="username" 
+                      value={(formData.username)}
+                      onChange={(e) => setFormData({...formData, username: e.target.value})}
+                    />
                   </CInputGroup>
                   {/* -----------------------------CORREO-------------------------------------------- */}
                   <CInputGroup className="mb-3">
                     <CInputGroupText>@</CInputGroupText>
-                    <CFormInput placeholder="Correo" autoComplete="email" />
+                    <CFormInput 
+                      type='email'
+                      placeholder="Correo" 
+                      autoComplete="email" 
+                      value={(formData.correo)}
+                      onChange={(e) => setFormData({...formData, correo: e.target.value})}
+                    />
                   </CInputGroup>
                   {/* -----------------------------CONTRASEÑA-------------------------------------------- */}
                   <CInputGroup className="mb-3">
@@ -60,6 +88,8 @@ const Register = () => {
                       type="password"
                       placeholder="Contraseña"
                       autoComplete="new-password"
+                      value={(formData.contraseña)}
+                      onChange={(e) => setFormData({...formData, contraseña: e.target.value})}
                     />
                   </CInputGroup>
                   {/* -----------------------------REPITE CONTRASEÑA---------------------------------*/}
@@ -71,6 +101,7 @@ const Register = () => {
                       type="password"
                       placeholder="Repetir contraseña"
                       autoComplete="new-password"
+                      /* Ojo, realizar la revicion */
                     />
                   </CInputGroup>
                   {/* -----------------------------------ROL-------------------------------------- */}

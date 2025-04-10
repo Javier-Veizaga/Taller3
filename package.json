@@ -18,7 +18,7 @@
     "lint": "eslint",
     "serve": "vite preview",
     "start": "vite",
-    "dev":"vite"
+    "dev": "vite"
   },
   "dependencies": {
     "@coreui/chartjs": "^4.1.0",
